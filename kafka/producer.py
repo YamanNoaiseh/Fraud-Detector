@@ -1,5 +1,4 @@
 # Kafka python producer
- 
 from kafka.client import KafkaClient
 from kafka.producer import KafkaProducer as kp
 import json
