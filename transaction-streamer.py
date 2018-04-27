@@ -1,4 +1,3 @@
-#
 import psycopg2 as pg
 from datetime import datetime as dt
  
