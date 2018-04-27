@@ -4,7 +4,7 @@ from kafka.client import KafkaClient
 from kafka.producer import KafkaProducer as kp
 import json
  
-producer = kp(bootstrap_servers=['localhost:9092'],value_serializer = lambda
+producer = kp(bootstrap_servers=['localhost:9092'],value_serializer = lambda v: json.dumps(v).encode("utf-8"))
 
 def produce_messages():
     with open('locations.csv', 'r') as f:
@@ -21,4 +21,3 @@ def produce_messages():
 
 if __name__ == '__main__':
     produce_messages()
- 
