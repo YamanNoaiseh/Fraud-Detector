@@ -3,7 +3,7 @@ from kafka import KafkaConsumer as kc
 from datetime import datetime as dt
 import json
  
-conn = pg.connect("host=yamandbinstance.cdv4ju31golw.us-east-1.rds.amazonaws
+conn = pg.connect("host=yamandbinstance.cdv4ju31golw.us-east-1.rds.amazonaws.com dbname=user_pins user=yamandbmaster password=dataimpactaws")
 cursor = conn.cursor()
 cursor.execute('DROP TABLE IF EXISTS previous_locations')
 conn.commit()
@@ -15,16 +15,16 @@ cursor.execute('''CREATE TABLE previous_locations(
 
 conn.commit()
 
-consumer = kc('testtopic', bootstrap_servers=['localhost:9092'],group_id = "
+consumer = kc('testtopic', bootstrap_servers=['localhost:9092'],group_id = "test",value_deserializer = lambda v : json.loads(v.decode("utf-8")))
 
 def consume_messages():
     for msg in consumer:
         try:
             elements = msg.value.split(',')
-            elements= [x.replace( "\"","").replace("\n","") for x in element
+            elements = [x.replace( "\"","").replace("\n","") for x in elements]
             time = elements[1]
             location = elements[2].strip()
-            statement = "INSERT INTO previous_locations(user_id, time, locat
+            statement = "INSERT INTO previous_locations(user_id, time, location) values({},'{}','{}');".format(elements[0],time,location)
             cursor.execute(statement)
             print('inserted line...')
             conn.commit()
