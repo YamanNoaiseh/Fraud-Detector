@@ -1,7 +1,7 @@
 import psycopg2 as pg
 from datetime import datetime as dt
  
-conn = pg.connect("host=yamandbinstance.cdv4ju31golw.us-east-1.rds.amazonaws
+conn = pg.connect("host=host_public_dns password=pw")
   
 def stream_transactions():
      cursor = conn.cursor()
