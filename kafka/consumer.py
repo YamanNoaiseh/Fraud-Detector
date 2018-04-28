@@ -3,7 +3,7 @@ from kafka import KafkaConsumer as kc
 from datetime import datetime as dt
 import json
  
-conn = pg.connect("host=yamandbinstance.cdv4ju31golw.us-east-1.rds.amazonaws.com dbname=user_pins user=yamandbmaster password=dataimpactaws")
+conn = pg.connect("host=host_public_dns password=pw")
 cursor = conn.cursor()
 cursor.execute('DROP TABLE IF EXISTS previous_locations')
 conn.commit()
