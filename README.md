@@ -1,2 +1,2 @@
-# Insight-MVP
-Minimal viable product for Insight project
+# Insight-Proejct, Boston 2018
+
