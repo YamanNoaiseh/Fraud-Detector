@@ -51,14 +51,15 @@ class LocationConsumer:
             msg = message.value[1:-1]
             elements = msg.split(',')
             user = elements[0]
-            
-            try:
-                txn_details = self.rmaster.hgetall(user)
-            except Exception:
-                crash_time = datetime.now()
-                self.switch_redis_connection()
-                txn_details = self.rmaster.hgetall(user)
-                self.redis_backup_ready = False
+            txn_details = {}
+            while txn_details == {}:
+                try:
+                    txn_details = self.rmaster.hgetall(user)
+                except Exception:
+                    crash_time = datetime.now()
+                    self.switch_redis_connection()
+                    txn_details = self.rmaster.hgetall(user)
+                    self.redis_backup_ready = False
             self.validate_transaction(elements, txn_details)
             
             try:
