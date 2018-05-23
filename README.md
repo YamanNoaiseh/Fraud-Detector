@@ -4,7 +4,9 @@
 
 ## Insight-Proejct, Boston, May 2018
 
-Based on the simple idea that we keep our cellphones with us, we can match the geographical location of a credit card transaction with the user geographical location, requested from his/her cellphone, to identify suspicious transactions.
+Based on the simple idea that we keep our cellphones with us all the time, we can match the geographical location of a credit card transaction with the user geographical location, requested from his/her cellphone, to identify suspicious transactions.
+
+I am assuming that the system will get the user location data no later than 10 minutes from the timestamp of the credit card transaction, when we trigger a user location request. The distance is matched based on the average rate of 8 kilometers per 10 minutes.
 
 ## Engineering Challenge
 Transaction records need to be stored in order to be matched with incoming location pins. However, writing into an on-disk database is very expensive and caused a bottleneck.
