@@ -46,7 +46,6 @@ class LocationConsumer:
         self.fproducer = FraudProducer('fraudtopic')
     
     def consume(self):
-        #count = 0
         for message in LocationConsumer.consumer:
             # location msg: uid, time, lat, long
             msg = message.value[1:-1]
@@ -60,16 +59,10 @@ class LocationConsumer:
                 self.switch_redis_connection()
                 txn_details = self.rmaster.hgetall(user)
                 self.redis_backup_ready = False
-            
-            if txn_details != {}:
-                self.validate_transaction(elements, txn_details)
-            else:
-                print('Cannot be validated')
+            self.validate_transaction(elements, txn_details)
             
             try:
-                res1 = self.rmaster.delete(user)
-                if res1 == 0:
-                    print('------------LOC - Did not Delete------------ 1')
+                self.rmaster.delete(user)
             except Exception:
                 crash_time = datetime.now()
                 self.switch_redis_connection()
@@ -77,9 +70,7 @@ class LocationConsumer:
                 self.redis_backup_ready = False
             
             if self.redis_backup_ready:
-                res = self.rbackup.delete(user)
-                if res == 0:
-                    print('------------LOC - Did not Delete------------ 2')
+                self.rbackup.delete(user)
             # else: try to reconnect every 5 seconds
             elif (datetime.now() - crash_time).total_seconds() > 5:
                 try:
@@ -100,8 +91,8 @@ class LocationConsumer:
                                           float(txn_details['lat']), float(txn_details['long']))
         txn_time = txn_details['time']
         threashold = distancer.distance_threshold(txn_time, loc_time)
-        if threashold != False and distance > threashold:
-            print('Suspicious transaction detected...')
+        if distance > threashold:
+            # Suspicious transaction detected
             fraud_msg = user \
                         + ',' + txn_details['vendor'] \
                         + ',' + txn_details['lat'] + ';' + txn_details['long'] \
