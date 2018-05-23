@@ -3,7 +3,7 @@ Created on May 7, 2018
 
 @author: Yaman Noaiseh
 '''
-# Creates Postgres table for fraudulent transactions 
+# Creates Postgres table to store fraudulent transactions detected
 
 import psycopg2 as pg
 
