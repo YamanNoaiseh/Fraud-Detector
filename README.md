@@ -17,4 +17,6 @@ To overcome this problem, I designed a Redis architecture that consists of two i
 ## Pipeline
 The data pipeline looks like the following:
 
+<p align="center">
 ![pipeline](https://user-images.githubusercontent.com/10068563/40402638-d431b686-5e1a-11e8-9c22-efdec79be42f.png)
+</p>
