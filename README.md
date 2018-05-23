@@ -1,8 +1,5 @@
 # Fraud Detector
-#### Dude, where is my card?
-
-
-####<p align="right">Insight-Proejct, Boston, May 2018</p>
+#### Dude, where is my card? <p align="right">Insight-Proejct, Boston, May 2018</p>
 
 Based on the simple idea that we keep our cellphones with us all the time, we can match the geographical location of a credit card transaction with the user geographical location, requested from his/her cellphone, to identify suspicious transactions.
 
