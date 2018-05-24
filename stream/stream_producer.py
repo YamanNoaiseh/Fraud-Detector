@@ -4,7 +4,7 @@ Created on May 6, 2018
 @author: Yaman Noaiseh
 '''
 
-from _datetime import datetime
+from datetime import datetime
 import json
 
 from faker import Faker
