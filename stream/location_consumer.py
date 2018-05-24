@@ -8,7 +8,6 @@ Created on May 7, 2018
 
 from datetime import datetime, timedelta
 import json
-import time
 
 import distancer
 from fraud_producer import FraudProducer
