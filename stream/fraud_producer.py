@@ -16,9 +16,8 @@ class FraudProducer:
                                                 'ec2-34-193-154-78.compute-1.amazonaws.com:9092',
                                                 'ec2-18-205-124-122.compute-1.amazonaws.com:9092',
                                                 'ec2-18-204-40-198.compute-1.amazonaws.com:9092'
-                                                ], 
-                                                value_serializer = lambda v: json.dumps(v).encode('utf-8')
-                            )
+                                               ],
+                             value_serializer = lambda v: json.dumps(v).encode('utf-8'))
     
     def __init__(self, fraud_topic):
         self.fraud_topic = fraud_topic
