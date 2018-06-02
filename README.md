@@ -13,7 +13,7 @@ I needed a fast in-memory database that is consistent and fault tolerant.
 Redis is a fast and consistent in-memory datastore. However, Redis consistency is only guaranteed when it runs on one instace (standalone Redis server).
 To overcome this problem, I designed a Redis architecture that consists of two independent, standalone Redis servers, and disabled both RDB and AOF persistant/recovery log writes. Disabling the default Redis persistance options improved the speed of Redis operations. The resulting Redis architecture illustrated below served as a distributed, fault-tolerant, and consistent datastore that my system communicated with in order to find potentially fraudulent transactions.
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/10068563/40880719-00502f1a-6684-11e8-8fe9-c8542769dd43.png" width="700" height="150"/>
+  <img src="https://user-images.githubusercontent.com/10068563/40880719-00502f1a-6684-11e8-8fe9-c8542769dd43.png" width="700" height="200"/>
 </p>
 
 ## Pipeline
