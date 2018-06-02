@@ -3,12 +3,12 @@
 
 ## Table of Content
 
-- [Idea](#Idea)
-- [Engineering Challenge](#Engineering-Challenge)
-- [Solution](#Solution)
-- [Pipeline](#Pipeline)
-- [Performance optimization](Performance-Optimization)
-- [Author](#Author)
+- [Idea](#idea)
+- [Engineering Challenge](#engineering-challenge)
+- [Solution](#solution)
+- [Pipeline](#pipeline)
+- [Performance optimization](performance-optimization)
+- [Author](#author)
 
 ### Idea
 Based on the simple idea that we keep our cellphones with us all the time, we can match the geographical locations of incoming credit card transactions with the user geographical locations, requested from thier cellphones, to identify suspicious transactions.
