@@ -40,5 +40,5 @@ The current pipeline was tested against 10000 transactions/second and was able t
   
   
 ### Author
-Yaman Noaiseh, [LinkedIn](https://www.linkedin.com/in/yamannoaiseh/)
+Yaman Noaiseh, [LinkedIn](https://www.linkedin.com/in/yamannoaiseh/)  
 yanoaiseh@gmail.com
