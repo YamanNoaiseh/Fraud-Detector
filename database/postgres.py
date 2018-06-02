@@ -10,9 +10,9 @@ import psycopg2 as pg
 # will be refactored and imported from properties file
 CONN_STR = '''
            host=yamandbinstance.cdv4ju31golw.us-east-1.rds.amazonaws.com 
-           dbname=dbname 
-           user=dbusername 
-           password=''
+           dbname=yourdbname 
+           user=yourdbusername 
+           password=yourdbpassword
            '''
 
 DROP_TABLE = 'DROP TABLE IF EXISTS fraud_txns;'
