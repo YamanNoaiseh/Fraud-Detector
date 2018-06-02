@@ -1,4 +1,4 @@
-# Fraud Detector
+<p align="center"># Fraud Detector</p>
 #### Dude, where is my card?
 
 ## Table of Content
