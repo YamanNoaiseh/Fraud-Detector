@@ -26,5 +26,5 @@ The current pipeline was tested against 10000 transactions/second and was able t
   - Using the two methods above together would result in a production-level performance.
 
 ## Author
-Yaman Noaiseh
+Yaman Noaiseh  
 yanoaiseh@gmail.com
