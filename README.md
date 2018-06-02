@@ -6,12 +6,12 @@
 - [Idea](#Idea)
 - [Engineering Challenge](#Engineering-Challenge)
 
-# Idea
+### Idea
 Based on the simple idea that we keep our cellphones with us all the time, we can match the geographical locations of incoming credit card transactions with the user geographical locations, requested from thier cellphones, to identify suspicious transactions.
 
 I am assuming that the system will get the user location data no later than 10 minutes from the time it is requested. The distance is matched based on the average speed of 8 kilometers per 10 minutes. However, a complex model could replace my simplified model *./stream/distancer.py* by replacing the *distance_threshold* function with the new logic.
 
-## Engineering Challenge
+### Engineering Challenge
 Transactions need to be stored to be matched with incoming location pins. However, writing into an on-disk database is very expensive and caused a bottleneck. We needed a fast, distributed or sharable datastore.
 
 ## Solution
