@@ -21,8 +21,8 @@ The final data pipeline looks like the following:
 
 ## Performance optimization
 The current pipeline was tested against 10000 transactions/second and was able to peocess them in real time.  
-  - Redis Pipelines: Redis offers a bulk execution option called *Redis Pipeline*. From [Redis FAQ page] (https://redis.io/topics/faq): *"using pipelining Redis running on an average Linux system can deliver even 1 million requests per second."*  
-  - Kafka Offsets: We can also improve the performance by minimizing the network communication with Redis by keeping track of the Kafka message offset of the last successfully-inserted message while inserting only into Redis Master and having a Redis Slave ready. If the Redis Master crashes the Slave becomes Master and the system writes all messages starting from the last Kafka offset to the new Master using one Redis pipeline execution.
+  - **Redis Pipelines:** Redis offers a bulk execution option called *Redis Pipeline*. From [Redis FAQ page](https://redis.io/topics/faq): *"using pipelining Redis running on an average Linux system can deliver even 1 million requests per second."*  
+  - **Kafka Offsets:** We can also improve the performance by minimizing the network communication with Redis by keeping track of the Kafka message offset of the last successfully-inserted message while inserting only into Redis Master and having a Redis Slave ready. If the Redis Master crashes the Slave becomes Master and the system writes all messages starting from the last Kafka offset to the new Master using one Redis pipeline execution.
   - Using the two methods above together would result in a production-level performance.
 
 ## Author
