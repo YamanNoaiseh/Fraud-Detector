@@ -7,7 +7,7 @@
 - [Engineering Challenge](#engineering-challenge)
 - [Solution](#solution)
 - [Pipeline](#pipeline)
-- [Performance optimization](performance-optimization)
+- [Performance Optimization](performance-optimization)
 - [Author](#author)
 
 ### Idea
