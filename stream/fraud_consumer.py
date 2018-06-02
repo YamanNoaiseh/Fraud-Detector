@@ -13,7 +13,7 @@ import psycopg2 as pg
 
 class FraudConsumer:
 
-    consumer = KafkaConsumer('fraudtopic', 
+    consumer = KafkaConsumer('fraud01', 
                              bootstrap_servers=[
                                  'ec2-35-171-168-73.compute-1.amazonaws.com:9092',
                                  'ec2-34-193-154-78.compute-1.amazonaws.com:9092',
@@ -40,8 +40,11 @@ class FraudConsumer:
     def consume(self):
         conn = pg.connect(FraudConsumer.CONN_STR)
         cursor = conn.cursor()
+        c = 0
+        print('Fraud Consumer has STARTED')
         for message in FraudConsumer.consumer:
-            print('Got a message!')
+            c += 1
+            print(c)
             # fraud_msg = user, vendor, vendor-loc, txn-time, txm-amount, distance
             msg = message.value[1:-1]
             elements = msg.split(',')
