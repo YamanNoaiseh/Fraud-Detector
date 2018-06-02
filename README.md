@@ -5,6 +5,10 @@
 
 - [Idea](#Idea)
 - [Engineering Challenge](#Engineering-Challenge)
+- [Solution](#Solution)
+- [Pipeline](#Pipeline)
+- [Performance optimization](Performance-Optimization)
+- [Author](#Author)
 
 ### Idea
 Based on the simple idea that we keep our cellphones with us all the time, we can match the geographical locations of incoming credit card transactions with the user geographical locations, requested from thier cellphones, to identify suspicious transactions.
@@ -28,12 +32,13 @@ The final data pipeline looks like the following:
   <img src="https://user-images.githubusercontent.com/10068563/40402638-d431b686-5e1a-11e8-9c22-efdec79be42f.png"/>
 </p>
 
-### Performance optimization
+### Performance Optimization
 The current pipeline was tested against 10000 transactions/second and was able to peocess them in real time.  
   - **Redis Pipelines:** Redis offers a bulk execution option called *Redis Pipeline*. From [Redis FAQ page](https://redis.io/topics/faq): *"using pipelining Redis running on an average Linux system can deliver even 1 million requests per second."*  
   - **Kafka Offsets:** We can also improve the performance by minimizing the network communication with Redis by keeping track of the Kafka message offset of the last successfully-inserted message while inserting only into Redis Master and having a Redis Slave ready. If the Redis Master crashes the Slave becomes Master and the system writes all messages starting from the last Kafka offset to the new Master using one Redis pipeline execution.
   - Using the two methods above together would result in a production-level performance.
-
+  
+  
 ### Author
 Yaman Noaiseh  
 yanoaiseh@gmail.com
