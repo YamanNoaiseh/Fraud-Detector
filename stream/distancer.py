@@ -14,10 +14,6 @@ def distance_threshold(txn_time, loc_time):
     t_time = datetime.strptime(txn_time, fmt)
     l_time = datetime.strptime(loc_time, fmt)
     time_diff = abs(l_time - t_time)
-    s = time_diff.total_seconds()
+    seconds = time_diff.total_seconds()
     minute = 60
-    if s > 10 * minute:
-        return False
-    else:
-        # The average move is 8 kilometers in 10 minutes
-        return 8000 * (s / 600)
+    return 8000 * (seconds / (10 * minute))
