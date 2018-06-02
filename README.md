@@ -1,7 +1,7 @@
 # Fraud Detector  
 **Dude, where is my card?**
 
-## Table of Content
+### Table of Content
 
 - [Idea](#idea)
 - [Engineering Challenge](#engineering-challenge)
