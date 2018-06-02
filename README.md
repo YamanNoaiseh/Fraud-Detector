@@ -20,9 +20,9 @@ I am assuming that the system will get the user location data no later than 10 m
 Transactions need to be stored to be matched with incoming location pins. However, writing into an on-disk database is very expensive and caused a bottleneck. We needed a fast, distributed or sharable datastore.
 
 ### Solution
-I needed a fast in-memory database that is consistent and fault tolerant.
-Redis is a fast and consistent in-memory datastore. However, Redis consistency is only guaranteed when it runs on one instace (standalone Redis server).
-To overcome this problem, I designed a Redis architecture that consists of two independent, standalone Redis servers, and disabled both RDB and AOF persistant/recovery log writes. Disabling the default Redis persistance options improved the speed of Redis operations. The resulting Redis architecture illustrated below served as a distributed, fault-tolerant, and consistent datastore that my system communicated with in order to find potentially fraudulent transactions.
+I needed a fast in-memory database that is consistent and fault tolerant.  
+Redis is a fast and consistent in-memory datastore. However, Redis consistency is only guaranteed when it runs on one instace (standalone Redis server). To overcome this problem, I designed a Redis architecture that consists of two independent, standalone Redis servers, and disabled both RDB and AOF persistant/recovery log writes. All write operations happen on both servers, while GET operations will be querying the master server only. When the master crashes, the system will detect that and the backup server will become a master while trying to reconnect to the crashing server every 5 seconds. Whenever the server recovers, the system will be able to detect that and all writes will be submitted to it again.  
+Disabling the default Redis persistance options improved the speed of Redis operations. The resulting Redis architecture illustrated below served as a fast, distributed, fault-tolerant, and consistent datastore that the system communicates with in order to find potentially fraudulent transactions.
 <p align="center">
   <img src="https://user-images.githubusercontent.com/10068563/40880719-00502f1a-6684-11e8-8fe9-c8542769dd43.png" width="700" height="200"/>
 </p>
