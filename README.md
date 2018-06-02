@@ -1,5 +1,6 @@
 # Fraud Detector  
-**Dude, where is my card?**
+**Dude, where is my card?**  
+This system identifies unauthorized transactions to protects lost/stolen credit cards.
 
 ### Table of Content
 
