@@ -7,6 +7,7 @@ This system identifies unauthorized transactions to protects lost/stolen credit 
 - [Idea](#idea)
 - [Engineering Challenge](#engineering-challenge)
 - [Solution](#solution)
+- [Transaction Lifecycle](#transaction-lifecycle)
 - [Pipeline](#pipeline)
 - [Performance Optimization](#performance-optimization)
 - [Author](#author)
