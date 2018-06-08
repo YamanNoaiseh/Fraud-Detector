@@ -27,6 +27,10 @@ Disabling the default Redis persistance options improved the speed of Redis oper
   <img src="https://user-images.githubusercontent.com/10068563/40880719-00502f1a-6684-11e8-8fe9-c8542769dd43.png" width="700" height="200"/>
 </p>
 
+### Transaction Lifecycle
+Redis is used only to handle data in real time, not to store/persist any data permanently. Each transaction message go through the following lifecycle: First, it is stored in Redis waiting for the location record requested from the user's cellphone. When the location message arrives, the transaction is queried, validated, and then **evicted** from Redis.  
+With that being said, when a Redis server crashes and backs up again, it will need only a few seconds to sync with the other Redis node, depending on how long a location message needs to arrive after being requested.
+
 ### Pipeline
 The final data pipeline looks like the following:
 <p align="center">
