@@ -1,1 +1,9 @@
-#
+Faker==0.8.13
+gpxpy==1.2.0
+kafka-python==1.4.2
+pkg-resources==0.0.0
+psycopg2==2.7.4
+python-dateutil==2.7.2
+redis==2.10.6
+six==1.11.0
+text-unidecode==1.2
