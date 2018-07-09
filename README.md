@@ -35,7 +35,7 @@ With that being said, when a Redis server crashes and backs up again, it will ne
 ### Pipeline
 The final data pipeline looks like the following:
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/10068563/42472920-04b3017a-8391-11e8-84d7-e1fd4c8d119c.png"/>
+  <img src="https://user-images.githubusercontent.com/10068563/42472958-30a3adca-8391-11e8-94ab-8b65dc512a18.png"/>
 </p>
 
 ### Performance Optimization
