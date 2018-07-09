@@ -13,7 +13,7 @@ This system identifies unauthorized transactions to protects lost/stolen credit 
 - [Author](#author)
 
 ### Idea
-Based on the simple idea that we keep our cellphones with us all the time, we can match the geographical locations of incoming credit card transactions with the user geographical locations, requested from thier cellphones, to identify suspicious transactions.
+Based on the simple idea that we keep our cellphones with us all the time, we can match the geographical locations of incoming credit card transactions with the user geographical locations, requested from their cellphones, to identify suspicious transactions.
 
 I am assuming that the system will get the user location data no later than 10 minutes from the time it is requested. The distance is matched based on the average speed of 8 kilometers per 10 minutes. However, a complex model could replace my simplified model *./stream/distancer.py* by replacing the *distance_threshold* function with the new logic.
 
